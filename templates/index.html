@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/assets/index.css">
+</head>
+<body>
+    <header>
+        <nav>
+            {{ if .Authenticated}}
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/post-in">New Post</a></li>
+            </ul>
+            {{ else }}
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+            {{ end }}
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to Home Page</h1>
+        {{ range .IndexData }}
+            <div class="post">
+                <h2><a href="/view/{{ .Post.ID}}"> {{ .Post.Title}}</a></h2>
+                <!-- this should be  ( slice .Content 0 50 ), but if you have 
+                a post with content less than 50 gives an error and I cannot fix that. -->
+                <p>{{ .Post.Content }}</p>
+                <div class="post-meta">
+                    <span class="author">Posted by {{ .Author.Name}} on {{ .Post.Date}}</span>
+                </div>
+            </div>
+        {{ end }}
+    </main>
+</body>
+</html>

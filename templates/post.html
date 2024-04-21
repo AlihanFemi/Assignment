@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Clone - Post</title>
+    <link rel="stylesheet" href="/assets/post.css">
+</head>
+<body>
+    <header>
+        <nav>
+            {{ if .Authenticated}}
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/post-in">New Post</a></li>
+            </ul>
+            {{ else }}
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+            {{ end }}
+        </nav>
+    </header>
+
+    <main>
+        <article class="post">
+            <h1>{{ .Post.Title}}</h1>
+            <p>{{ .Post.Content}}</p>
+            <div class="post-meta">
+                <span class="author">Posted by {{ .Author.Name}} on {{ .Post.Date}}</span>
+            </div>
+        </article>
+
+        <section class="comments">
+            <h2>Comments</h2>
+            <div class="comment">
+                {{ range .Comments }}
+                <p>{{ .Comment.Content}}</p>
+                <div class="comment-meta">
+                    <span class="author">Commented by {{ .Author.Name}} on {{ .Comment.Date}}</span>
+                </div>
+                {{ end }}
+            </div>
+            <!-- Repeat the above comment div for more comments -->
+        </section>
+    </main>
+</body>
+</html>
