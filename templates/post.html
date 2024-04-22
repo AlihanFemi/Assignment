@@ -33,16 +33,26 @@
             </div>
         </article>
 
+        {{ if .Authenticated}}
+        <section class="comments">
+            <h2>Add a New Comment</h2>
+            <form action="/view/{{ .Post.ID}}" method="post" class="comment">
+                <textarea id="comment-textbox" name="comment" rows="3" required></textarea><br />
+                <button type="submit">Post Comment</button>
+            </form>
+        </section>
+        {{ end }}
+        
         <section class="comments">
             <h2>Comments</h2>
+            {{ range .Comments }}
             <div class="comment">
-                {{ range .Comments }}
                 <p>{{ .Comment.Content}}</p>
                 <div class="comment-meta">
                     <span class="author">Commented by {{ .Author.Name}} on {{ .Comment.Date}}</span>
                 </div>
-                {{ end }}
             </div>
+            {{ end }}
             <!-- Repeat the above comment div for more comments -->
         </section>
     </main>

@@ -2,79 +2,111 @@
 
 /* Reset styles */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f6f7f8;
+  font-family: Arial, sans-serif;
+  background-color: #f6f7f8;
 }
 
 header {
-    background-color: #0079d3;
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #0079d3;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+  display: inline;
+  margin-right: 20px;
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 main {
-    padding: 20px;
+  padding: 20px;
 }
 
-.post {
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+form {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.post h1 {
-    color: #000;
+form label {
+  display: block;
+  margin-bottom: 10px;
 }
 
-.post-meta {
-    color: #666;
-    font-size: 14px;
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: #0079d3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+form button:hover {
+  background-color: #005aa6;
 }
 
 .comments {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .comment {
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-    margin-bottom: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .comment p {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .comment-meta {
-    color: #666;
-    font-size: 12px;
+  color: #666;
+  font-size: 12px;
+}
+
+.new-comment {
+  margin-bottom: 20px;
+}
+
+.new-comment textarea {
+  resize: vertical;
+}
+
+.comment .new-comment-form .comment-textbox{
+    display: flex;
+    align-items: flex-start;
+    resize: none;
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
 }
