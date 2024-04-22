@@ -30,7 +30,6 @@ func (rh *RegisterHandler) ServerGet(w http.ResponseWriter, r *http.Request) {
 
 func (rh *RegisterHandler) Register(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
-	fmt.Println(r.Form)
 	username := r.Form.Get("username")
 	email := r.Form.Get("email")
 	password := r.Form.Get("password")
