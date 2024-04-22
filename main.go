@@ -25,6 +25,7 @@ func main() {
 	sess := sessions.New(sessions.Config{Expires: time.Hour * 2})
 	indexHandler := handlers.IndexHandler{Sess: sess, DB: db}
 	postHandler := handlers.PostHandler{Sess: sess, DB: db}
+	newPostHandler := handlers.NewPostHandler{Sess: sess, DB: db}
 	registerHandler := handlers.RegisterHandler{Sess: sess, DB: db}
 	loginHandler := handlers.LoginHandler{Sess: sess, DB: db}
 
@@ -33,7 +34,7 @@ func main() {
 	http.Handle("/register", &registerHandler)
 	http.Handle("/login", &loginHandler)
 	http.Handle("/view/", &postHandler)
-	http.Handle("/post-in", &postHandler)
+	http.Handle("/post-in", &newPostHandler)
 	fmt.Println("Started")
 	http.ListenAndServe(":42069", nil)
 }

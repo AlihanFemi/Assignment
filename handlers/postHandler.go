@@ -48,8 +48,6 @@ func (ph *PostHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintln(w, err)
 		}
 		ph.ServerGet(w, r)
-	} else if r.Method == http.MethodPost {
-		ph.ServerPost(w, r)
 	} else {
 		http.Error(w, "Unsupported Method", http.StatusMethodNotAllowed)
 	}
@@ -92,21 +90,6 @@ func (ph *PostHandler) ServerGet(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
-
-func (ph *PostHandler) ServerPost(w http.ResponseWriter, r *http.Request) {
-
-}
-
-// func (ph *PostHandler) insertPost(title string, content string, date string, user User) error {
-// 	// insert into posts VALUES(content, date, user_ID) ($1, $2, $2)
-// 	const query = "INSERT INTO posts (title, content, date, user_ID) VALUES ($1, $2, $3, $4)"
-// 	id := user.ID
-// 	_, err := ph.DB.Exec(query, title, content, date, id)
-// 	if err != nil {
-// 		return err
-// 	}
-// 	return nil
-// }
 
 func (ph *PostHandler) getPost() (Post, error) {
 	query := "SELECT * from posts WHERE id = $1"
